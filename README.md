@@ -2,7 +2,17 @@
 
 This addon provides blueprint support for ember-cli ^2.0.0 projects that are importing Ember and Ember Data through bower.js. Projects that are using Ember and Ember Data as addons (imported from npm as dependencies through package.json) do not need this addon to provide blueprints, as the related blueprints are provided by the respective addons.
 
-## Blueprints provided by Ember addon
+## Why?
+
+To provide tighter coupling of the blueprints with their respective libraries, it makes sense in the long run for ember-cli import such blueprints through the addons for those libraries. This will ensure that blueprints will keep up to date with changes to their libraries.
+
+With the release of ember-cli 2.0.0, all blueprints that were not specific to ember-cli have been extracted to their respective libraries (ember, ember-data, ember-cli-qunit, and ember-cli-mocha). This addon simply provides backwards compatibility for projects not using those addons.
+
+## Supported blueprints
+
+If the ember, ember-data, ember-cli-qunit, or ember-cli-mocha addons are installed in your project, they take precedent and will override the blueprints provided by this addon.
+
+### Blueprints provided by Ember addon
 
 * component
 * component-addon
@@ -29,7 +39,7 @@ This addon provides blueprint support for ember-cli ^2.0.0 projects that are imp
 * view
 * view-test
 
-## Blueprints provided by Ember Data addon
+### Blueprints provided by Ember Data addon
 
 * adapter
 * adapter-test
@@ -39,6 +49,23 @@ This addon provides blueprint support for ember-cli ^2.0.0 projects that are imp
 * serializer-test
 * transform
 * transform-test
+
+### Blueprints provided by ember-cli-qunit or ember-cli-mocha
+
+* acceptance-test
+* test-helper
+
+### Blueprints provided by ember-cli (not in this addon)
+
+* addon
+* addon-import
+* app
+* blueprint
+* http-mock
+* http-proxy
+* in-repo-addon
+* lib
+* server
 
 ## Installation
 
@@ -51,7 +78,8 @@ From your project root, run: `ember install ember-cli-legacy-blueprints`
 * `bower install`
 * `npm link`
 
-Because the nature of this project, it requires 
+Because the nature of this project, it needs to be consumed by an ember-cli project to properly develop it.
+* Add `"ember-cli-legacy-blueprints": "*"` to your consuming project's `package.json`
 * From your project root run `npm link ember-cli-legacy-blueprints`
 
 ## Running
