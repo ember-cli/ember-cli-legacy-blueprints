@@ -15,14 +15,9 @@ module.exports = {
   uninstall: function(options) {
     return this._process('uninstall', options);
   },
-
+  
   _processBlueprint: function(type, name, options) {
-    var mainBlueprint = Blueprint.lookup(name, {
-      ui: this.ui,
-      analytics: this.analytics,
-      project: this.project
-    });
-
+    var mainBlueprint = this.lookupBlueprint(name);
     return Promise.resolve()
       .then(function() {
         return mainBlueprint[type](options);
@@ -48,8 +43,10 @@ module.exports = {
   },
 
   _process: function(type, options) {
+    this.ui = options.ui;
+    this.project = options.project;
     var entityName = options.entity.name;
-
+    
     var modelOptions = merge({}, options, {
       entity: {
         name: entityName ? inflection.singularize(entityName) : ''
@@ -58,10 +55,10 @@ module.exports = {
 
     var routeOptions = merge({}, options);
 
-    var self = this;
     return this._processBlueprint(type, 'model', modelOptions)
               .then(function() {
-                return self._processBlueprint(type, 'route', routeOptions);
-              });
+                return this._processBlueprint(type, 'route', routeOptions);
+              }.bind(this));
   }
+
 };
