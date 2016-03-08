@@ -6,7 +6,7 @@ var chalk       = require('chalk');
 var EmberRouterGenerator = require('ember-router-generator');
 
 module.exports = {
-  description: 'Generates a route and registers it with the router.',
+  description: 'Generates a route and a template, and registers the route with the router.',
 
   availableOptions: [
     {
@@ -18,6 +18,10 @@ module.exports = {
       name: 'skip-router',
       type: Boolean,
       default: false
+    },
+    {
+      name: 'reset-namespace',
+      type: Boolean
     }
   ],
 
