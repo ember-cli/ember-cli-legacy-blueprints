@@ -1,5 +1,10 @@
 # ember-cli-legacy-blueprints
 
+[![Build Status](https://travis-ci.org/ember-cli/ember-cli-legacy-blueprints.svg?branch=master)](https://travis-ci.org/ember-cli/ember-cli-legacy-blueprints)
+[![Build status](https://ci.appveyor.com/api/projects/status/rhhwbxkypyjrbvda/branch/master?svg=true)](https://ci.appveyor.com/project/embercli/ember-cli-legacy-blueprints/branch/master)
+
+
+
 This addon provides blueprint support for ember-cli ^2.0.0 projects that are importing Ember and Ember Data through bower.js. Projects that are using Ember and Ember Data as addons (imported from npm as dependencies through package.json) do not need this addon to provide blueprints, as the related blueprints are provided by the respective addons.
 
 ## Why?
