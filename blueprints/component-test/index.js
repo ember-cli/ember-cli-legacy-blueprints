@@ -3,9 +3,11 @@
 var path          = require('path');
 var testInfo      = require('ember-cli-test-info');
 var stringUtil    = require('ember-cli-string-utils');
-var getPathOption = require('ember-cli/lib/utilities/get-component-path-option');
+var isPackageMissing = require('ember-cli-is-package-missing');
+var getPathOption = require('ember-cli-get-component-path-option');
+var useTestFrameworkDetector = require('../test-framework-detector');
 
-module.exports = {
+module.exports = useTestFrameworkDetector({
   description: 'Generates a component integration or unit test.',
 
   availableOptions: [
@@ -38,15 +40,15 @@ module.exports = {
   locals: function(options) {
     var dasherizedModuleName = stringUtil.dasherize(options.entity.name);
     var componentPathName = dasherizedModuleName;
-    var testType = options.testType || "integration";
-    var friendlyTestDescription = testInfo.description(options.entity.name, "Integration", "Component");
+    var testType = options.testType || 'integration';
+    var friendlyTestDescription = testInfo.description(options.entity.name, 'Integration', 'Component');
 
     if (options.pod && options.path !== 'components' && options.path !== '') {
       componentPathName = [options.path, dasherizedModuleName].join('/');
     }
 
     if (options.testType === 'unit') {
-      friendlyTestDescription = testInfo.description(options.entity.name, "Unit", "Component");
+      friendlyTestDescription = testInfo.description(options.entity.name, 'Unit', 'Component');
     }
 
     return {
@@ -55,5 +57,12 @@ module.exports = {
       componentPathName: componentPathName,
       friendlyTestDescription: friendlyTestDescription
     };
+  },
+  afterInstall: function(options) {
+    if (!options.dryRun && options.testType === 'integration' && isPackageMissing(this, 'ember-cli-htmlbars-inline-precompile')) {
+      return this.addPackagesToProject([
+        { name: 'ember-cli-htmlbars-inline-precompile', target: '^0.3.1' }
+      ]);
+    }
   }
-};
+});

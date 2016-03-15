@@ -1,17 +1,17 @@
 /*jshint node:true*/
 
-// var ModelBlueprint = require('../model');
+var ModelBlueprint = require('../model');
 var testInfo = require('ember-cli-test-info');
+var useTestFrameworkDetector = require('../test-framework-detector');
 
-module.exports = {
+module.exports = useTestFrameworkDetector({
   description: 'Generates a model unit test.',
 
   locals: function(options) {
-    var ModelBlueprint = this.lookupBlueprint('model');
     var result = ModelBlueprint.locals.apply(this, arguments);
 
     result.friendlyDescription = testInfo.description(options.entity.name, "Unit", "Model");
 
     return result;
   }
-};
+});
