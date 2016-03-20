@@ -1,7 +1,7 @@
 /*jshint node:true*/
 
 var Blueprint  = require('ember-cli/lib/models/blueprint');
-var Promise    = require('ember-cli/lib/ext/promise');
+var Promise    = require('rsvp').Promise;
 var merge      = require('lodash/object/merge');
 var inflection = require('inflection');
 
@@ -15,7 +15,7 @@ module.exports = {
   uninstall: function(options) {
     return this._process('uninstall', options);
   },
-  
+
   _processBlueprint: function(type, name, options) {
     var mainBlueprint = this.lookupBlueprint(name);
     return Promise.resolve()
@@ -46,7 +46,7 @@ module.exports = {
     this.ui = options.ui;
     this.project = options.project;
     var entityName = options.entity.name;
-    
+
     var modelOptions = merge({}, options, {
       entity: {
         name: entityName ? inflection.singularize(entityName) : ''
