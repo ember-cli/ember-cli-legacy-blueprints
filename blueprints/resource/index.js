@@ -44,7 +44,7 @@ module.exports = {
       });
   },
 
-  _findBlueprintBaseClass(cls) {
+  _findBlueprintBaseClass: function(cls) {
     if (cls.constructor && cls.constructor.name === 'Blueprint') {
       return cls.constructor;
     }
