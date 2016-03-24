@@ -45,8 +45,7 @@ describe('Acceptance: ember generate and destroy adapter', function() {
     });
   });
 
-  // skipped because `throws` is currently broken
-  it.skip('adapter throws when --base-class is same as name', function() {
+  it('adapter throws when --base-class is same as name', function() {
     return generateAndDestroy(['adapter', 'application', '--base-class=application'], {
       throws: {
         message: /Adapters cannot extend from themself/,
