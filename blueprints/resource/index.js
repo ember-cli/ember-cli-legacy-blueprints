@@ -1,7 +1,6 @@
 /*jshint node:true*/
 
-var Blueprint  = require('ember-cli/lib/models/blueprint');
-var Promise    = require('ember-cli/lib/ext/promise');
+var Promise    = require('rsvp').Promise;
 var merge      = require('lodash/object/merge');
 var inflection = require('inflection');
 
@@ -15,9 +14,11 @@ module.exports = {
   uninstall: function(options) {
     return this._process('uninstall', options);
   },
-  
+
   _processBlueprint: function(type, name, options) {
     var mainBlueprint = this.lookupBlueprint(name);
+
+    var that = this;
     return Promise.resolve()
       .then(function() {
         return mainBlueprint[type](options);
@@ -32,7 +33,8 @@ module.exports = {
 
         if (!testBlueprint) { return; }
 
-        if (testBlueprint.locals === Blueprint.prototype.locals) {
+        var Blueprint = that._findBlueprintBaseClass(testBlueprint);
+        if (Blueprint && testBlueprint.locals === Blueprint.prototype.locals) {
           testBlueprint.locals = function(options) {
             return mainBlueprint.locals(options);
           };
@@ -42,11 +44,23 @@ module.exports = {
       });
   },
 
+  _findBlueprintBaseClass: function(cls) {
+    if (cls.constructor && cls.constructor.name === 'Blueprint') {
+      return cls.constructor;
+    }
+
+    if (cls._super) {
+      return this._findBlueprintBaseClass(cls._super);
+    }
+
+    return null;
+  },
+
   _process: function(type, options) {
     this.ui = options.ui;
     this.project = options.project;
     var entityName = options.entity.name;
-    
+
     var modelOptions = merge({}, options, {
       entity: {
         name: entityName ? inflection.singularize(entityName) : ''
