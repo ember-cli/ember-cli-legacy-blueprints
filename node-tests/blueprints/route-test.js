@@ -41,7 +41,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'foo'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -76,7 +76,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'foo', '--skip-router'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -97,7 +97,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'foo', '--path=:foo_id/show'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -114,7 +114,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'index'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -124,9 +124,9 @@ describe('Acceptance: ember generate and destroy route', function() {
 
   it('route application', function() {
     return generateAndDestroy(['route', 'foo'], {
-      afterGenerate: function(){
+      afterGenerate(){
         return remove(path.join('app', 'templates', 'application.hbs'))
-          .then(function() {
+          .then(() => {
             var files = [
               {
                 file: 'app/router.js',
@@ -136,7 +136,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
             return generateAndDestroy(['route', 'application'], {
               skipInit: true,
-              afterDestroy: function() {
+              afterDestroy() {
                 // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
                 files.shift();
               },
@@ -159,7 +159,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'basic'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -205,7 +205,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
     return generateAndDestroy(['route', 'foo'], {
       target: 'addon',
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.pop();
       },
@@ -245,7 +245,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
     return generateAndDestroy(['route', 'foo/bar'], {
       target: 'addon',
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.pop();
       },
@@ -286,7 +286,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
     return generateAndDestroy(['route', 'foo', '--dummy'], {
       target: 'addon',
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -326,7 +326,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
     return generateAndDestroy(['route', 'foo/bar', '--dummy'], {
       target: 'addon',
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -473,7 +473,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'foo', '--pod'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -494,7 +494,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'foo', '--pod', '--path=:foo_id/show'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -531,7 +531,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
     return generateAndDestroy(['route', 'foo', '--pod'], {
       podModulePrefix: true,
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -548,7 +548,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'index', '--pod'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
@@ -558,9 +558,9 @@ describe('Acceptance: ember generate and destroy route', function() {
 
   it('route application --pod', function() {
     return generateAndDestroy(['route', 'foo'], {
-      afterGenerate: function(){
+      afterGenerate() {
         return remove(path.join('app', 'templates', 'application.hbs'))
-          .then(function() {
+          .then(() => {
             var files = [
               {
                 file: 'app/router.js',
@@ -570,7 +570,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
             return generateAndDestroy(['route', 'application', '--pod'], {
               skipInit: true,
-              afterDestroy: function() {
+              afterDestroy() {
                 // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
                 files.shift();
               },
@@ -593,7 +593,7 @@ describe('Acceptance: ember generate and destroy route', function() {
     ];
 
     return generateAndDestroy(['route', 'basic', '--pod'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },
