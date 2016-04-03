@@ -122,7 +122,7 @@ describe('Acceptance: ember generate and destroy route', function() {
 
   it('route application', function() {
     return generateAndDestroy(['route', 'foo'], {
-      afterGenerate(){
+      afterGenerate() {
         return remove(path.join('app', 'templates', 'application.hbs'))
           .then(() => {
             var files = [
