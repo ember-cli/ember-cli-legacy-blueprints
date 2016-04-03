@@ -5,10 +5,8 @@ var path               = require('path');
 var RSVP               = require('rsvp');
 var remove             = RSVP.denodeify(fs.remove);
 var setupTestHooks     = require('ember-cli-blueprint-test-helpers/lib/helpers/setup');
-var initProject        = require('ember-cli-blueprint-test-helpers/lib/helpers/project-init');
 var BlueprintHelpers   = require('ember-cli-blueprint-test-helpers/lib/helpers/blueprint-helper');
 var generateAndDestroy = BlueprintHelpers.generateAndDestroy;
-var destroy = BlueprintHelpers.destroy;
 
 
 describe('Acceptance: ember generate and destroy route', function() {
