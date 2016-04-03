@@ -1,3 +1,5 @@
+'use strict';
+
 var setupTestHooks     = require('ember-cli-blueprint-test-helpers/lib/helpers/setup');
 var BlueprintHelpers   = require('ember-cli-blueprint-test-helpers/lib/helpers/blueprint-helper');
 var generateAndDestroy = BlueprintHelpers.generateAndDestroy;
