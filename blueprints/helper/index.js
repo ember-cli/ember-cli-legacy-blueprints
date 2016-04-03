@@ -1,5 +1,5 @@
 'use strict';
-/*jshint node:true*/
+
 var normalizeEntityName = require('ember-cli-normalize-entity-name');
 
 module.exports = {

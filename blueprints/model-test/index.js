@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var ModelBlueprint = require('../model');
 var testInfo = require('ember-cli-test-info');
 var useTestFrameworkDetector = require('../test-framework-detector');

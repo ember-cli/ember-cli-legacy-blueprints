@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var stringUtil  = require('ember-cli-string-utils');
 var SilentError = require('silent-error');
 var pathUtil    = require('ember-cli-path-utils');

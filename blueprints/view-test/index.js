@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var testInfo = require('ember-cli-test-info');
 
 module.exports = {

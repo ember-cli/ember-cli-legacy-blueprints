@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var testInfo     = require('ember-cli-test-info');
 var stringUtils  = require('ember-cli-string-utils');
 var useTestFrameworkDetector = require('../test-framework-detector');
