@@ -10,6 +10,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "npm run nodetest",
+    "lint": "mocha node-tests/lint-test",
     "nodetest": "node node-tests/nodetest-runner.js"
   },
   "repository": "",
@@ -45,6 +46,7 @@
     "glob": "5.0.13",
     "loader.js": "^4.0.0",
     "mocha": "2.4.5",
+    "mocha-eslint": "^2.0.2",
     "mocha-only-detector": "0.0.2",
     "rimraf": "2.5.2"
   },
