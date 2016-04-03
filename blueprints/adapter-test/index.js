@@ -8,7 +8,7 @@ module.exports = useTestFrameworkDetector({
 
   locals: function(options) {
     return {
-      friendlyTestDescription: testInfo.description(options.entity.name, "Unit", "Adapter")
+      friendlyTestDescription: testInfo.description(options.entity.name, 'Unit', 'Adapter')
     };
   }
 });
