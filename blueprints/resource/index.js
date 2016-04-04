@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var Promise    = require('rsvp').Promise;
 var merge      = require('lodash/object/merge');
 var inflection = require('inflection');

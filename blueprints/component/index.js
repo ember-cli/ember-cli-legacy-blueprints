@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var stringUtil         = require('ember-cli-string-utils');
 var pathUtil           = require('ember-cli-path-utils');
 var validComponentName = require('ember-cli-valid-component-name');

@@ -1,5 +1,3 @@
-/*jshint node:true*/
-
 var inflection  = require('inflection');
 var stringUtils = require('ember-cli-string-utils');
 var EOL         = require('os').EOL;
@@ -51,7 +49,7 @@ module.exports = {
       }
 
       if (/has-many|belongs-to/.test(dasherizedType)) {
-        needs.push("'model:" + dasherizedForeignModelSingular + "'");
+        needs.push('\'model:' + dasherizedForeignModelSingular + '\'');
       }
     }
 
