@@ -51,7 +51,7 @@ describe('Acceptance: ember generate and destroy resource', function() {
     ];
 
     return generateAndDestroy(['resource', 'foo'], {
-      afterDestroy: function() {
+      afterDestroy() {
         // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
         files.shift();
       },

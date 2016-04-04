@@ -1,5 +1,7 @@
 'use strict';
 
+require('babel-register');
+
 var glob = require('glob');
 var Mocha = require('mocha');
 var Promise = require('ember-cli/lib/ext/promise');
