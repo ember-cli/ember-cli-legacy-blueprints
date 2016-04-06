@@ -1,63 +1,48 @@
 'use strict';
 
-var setupTestHooks     = require('ember-cli-blueprint-test-helpers/lib/helpers/setup');
-var BlueprintHelpers   = require('ember-cli-blueprint-test-helpers/lib/helpers/blueprint-helper');
-var generateAndDestroy = BlueprintHelpers.generateAndDestroy;
+var blueprintHelpers = require('ember-cli-blueprint-test-helpers/helpers');
+var setupTestHooks = blueprintHelpers.setupTestHooks;
+var emberNew = blueprintHelpers.emberNew;
+var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
+
+var chai = require('ember-cli-blueprint-test-helpers/chai');
+var expect = chai.expect;
+var file = chai.file;
 
 describe('Acceptance: ember generate and destroy resource', function() {
   setupTestHooks(this);
 
   it('foo', function() {
-    var files = [
-      {
-        file: 'app/router.js',
-        contains: 'this.route(\'foo\')'
-      },
-      {
-        file: 'app/routes/foo.js',
-        contains: [
-          "import Ember from 'ember';",
-          "export default Ember.Route.extend({\n});"
-        ]
-      },
-      {
-        file: 'app/templates/foo.hbs',
-        contains: '{{outlet}}'
-      },
-      {
-        file: 'tests/unit/routes/foo-test.js',
-        contains: [
-          "import { moduleFor, test } from 'ember-qunit';",
-          "moduleFor('route:foo'"
-        ]
-      },
-      {
-        file: 'app/models/foo.js',
-        contains: [
-          'import Model from \'ember-data/model\';',
-          'export default Model.extend('
-        ],
-        doesNotContain: [
-          'import attr from \'ember-data/attr\';',
-          'import { belongsTo } from \'ember-data/relationships\';',
-          'import { hasMany } from \'ember-data/relationships\';',
-          'import { belongsTo, hasMany } from \'ember-data/relationships\';'
-        ]
-      },
-      {
-        file: 'tests/unit/models/foo-test.js',
-        contains: [
-          'moduleForModel(\'foo\''
-        ]
-      },
-    ];
+    var args = ['resource', 'foo'];
 
-    return generateAndDestroy(['resource', 'foo'], {
-      afterDestroy() {
-        // remove `app/router.js` to work around https://github.com/ember-cli/ember-cli-blueprint-test-helpers/issues/38
-        files.shift();
-      },
-      files: files,
-    });
+    return emberNew()
+      .then(() => emberGenerateDestroy(args, (_file) => {
+        expect(_file('app/routes/foo.js'))
+          .to.contain("import Ember from 'ember';")
+          .to.contain("export default Ember.Route.extend({\n});");
+
+        expect(_file('app/templates/foo.hbs'))
+          .to.contain('{{outlet}}');
+
+        expect(_file('tests/unit/routes/foo-test.js'))
+          .to.contain("import { moduleFor, test } from 'ember-qunit';")
+          .to.contain("moduleFor('route:foo'");
+
+        expect(_file('app/models/foo.js'))
+          .to.contain('import Model from \'ember-data/model\';')
+          .to.contain('export default Model.extend(')
+          .to.not.contain('import attr from \'ember-data/attr\';')
+          .to.not.contain('import { belongsTo } from \'ember-data/relationships\';')
+          .to.not.contain('import { hasMany } from \'ember-data/relationships\';')
+          .to.not.contain('import { belongsTo, hasMany } from \'ember-data/relationships\';');
+
+        expect(_file('tests/unit/models/foo-test.js'))
+          .to.contain('moduleForModel(\'foo\'');
+
+        expect(file('app/router.js'))
+          .to.contain('this.route(\'foo\')');
+      }))
+      .then(() => expect(file('app/router.js'))
+        .to.not.contain('this.route(\'foo\')'));
   });
 });
