@@ -9,9 +9,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "npm run nodetest",
     "lint": "mocha node-tests/lint-test",
-    "nodetest": "node node-tests/nodetest-runner.js"
+    "test": "mocha node-tests --recursive  --compilers js:babel-register"
   },
   "repository": "",
   "engines": {
@@ -32,7 +31,6 @@
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.3.1",
-    "ember-cli-internal-test-helpers": "0.7.0",
     "ember-cli-qunit": "^1.2.1",
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^2.1.0",
@@ -43,12 +41,9 @@
     "ember-load-initializers": "^0.5.0",
     "ember-resolver": "^2.0.3",
     "eslint-plugin-chai-expect": "^1.1.1",
-    "glob": "5.0.13",
     "loader.js": "^4.0.0",
     "mocha": "2.4.5",
-    "mocha-eslint": "^2.0.2",
-    "mocha-only-detector": "0.0.2",
-    "rimraf": "2.5.2"
+    "mocha-eslint": "^2.0.2"
   },
   "keywords": [
     "ember-addon"
