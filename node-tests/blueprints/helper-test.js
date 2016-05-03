@@ -220,6 +220,16 @@ describe('Acceptance: ember generate and destroy helper', function() {
       }));
   });
 
+  it('helper-test foo/bar-baz --integration', function() {
+    var args = ['helper-test', 'foo/bar-baz', '--integration'];
+
+    return emberNew()
+      .then(() => emberGenerateDestroy(args, _file => {
+        expect(_file('tests/integration/helpers/foo/bar-baz-test.js'))
+          .to.contain("import hbs from 'htmlbars-inline-precompile';");
+      }));
+  });
+
   it('helper-test foo/bar-baz', function() {
     var args = ['helper-test', 'foo/bar-baz'];
 
