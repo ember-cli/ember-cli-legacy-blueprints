@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { describeComponent, it } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 
-describeComponent('<%= dasherizedModuleName %>', 'helper:<%= dasherizedModuleName %>', {
+describeComponent('<%= dasherizedModuleName %>', 'helper:<%= dasherizedModuleName %>',
   {
     integration: true
   },
@@ -22,7 +22,7 @@ describeComponent('<%= dasherizedModuleName %>', 'helper:<%= dasherizedModuleNam
 
       this.render(hbs`{{<%= dasherizedModuleName %> inputValue}}`);
 
-      expect(this.$()).text().trim().to.equal('1234');
+      expect(this.$().text().trim()).to.equal('1234');
     });
   }
 );
