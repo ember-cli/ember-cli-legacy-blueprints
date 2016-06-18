@@ -23,7 +23,7 @@
     "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
     "babel-plugin-transform-es2015-shorthand-properties": "^6.5.0",
     "babel-register": "^6.7.2",
-    "broccoli-asset-rev": "^2.2.0",
+    "broccoli-asset-rev": "^2.4.3",
     "ember-ajax": "0.7.1",
     "ember-cli": "2.4.2",
     "ember-cli-app-version": "^1.0.0",
