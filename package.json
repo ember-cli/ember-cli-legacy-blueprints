@@ -19,7 +19,7 @@
   "devDependencies": {
     "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
     "babel-plugin-transform-es2015-shorthand-properties": "^6.5.0",
-    "babel-register": "^6.7.2",
+    "babel-register": "^6.11.6",
     "ember-cli": "2.4.2",
     "ember-cli-blueprint-test-helpers": "0.13.0",
     "eslint-plugin-chai-expect": "^1.1.1",
