@@ -38,6 +38,7 @@
     "ember-cli-get-component-path-option": "^1.0.0",
     "ember-cli-get-dependency-depth": "^1.0.0",
     "ember-cli-is-package-missing": "^1.0.0",
+    "ember-cli-lodash-subset": "^1.0.7",
     "ember-cli-normalize-entity-name": "^1.0.0",
     "ember-cli-path-utils": "^1.0.0",
     "ember-cli-string-utils": "^1.0.0",
@@ -47,7 +48,6 @@
     "exists-sync": "0.0.3",
     "fs-extra": "^0.24.0",
     "inflection": "^1.7.1",
-    "lodash": "^3.6.0",
     "rsvp": "^3.0.17",
     "silent-error": "^1.0.0"
   },

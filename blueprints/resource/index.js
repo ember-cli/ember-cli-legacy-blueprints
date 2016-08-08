@@ -1,5 +1,5 @@
 var Promise    = require('rsvp').Promise;
-var merge      = require('lodash/object/merge');
+var merge      = require('ember-cli-lodash-subset').merge;
 var inflection = require('inflection');
 
 module.exports = {
