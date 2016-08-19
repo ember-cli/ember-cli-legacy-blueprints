@@ -44,7 +44,7 @@
     "ember-cli-string-utils": "^1.0.0",
     "ember-cli-test-info": "^1.0.0",
     "ember-cli-valid-component-name": "^1.0.0",
-    "ember-router-generator": "^1.0.0",
+    "ember-router-generator": "^1.2.2",
     "exists-sync": "0.0.3",
     "fs-extra": "^0.24.0",
     "inflection": "^1.7.1",
