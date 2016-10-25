@@ -8,4 +8,7 @@ var paths = [
   'index.js',
 ];
 
-lint(paths);
+lint(paths, {
+  timeout: 10000,
+  slow: 2000,
+});
