@@ -29,7 +29,10 @@ If the ember, ember-data, ember-cli-qunit, or ember-cli-mocha addons are install
 * helper-test
 * initializer
 * initializer-addon
-* intializer-test
+* initializer-test
+* instance-initializer
+* instance-initializer-addon
+* instance-initializer-test
 * mixin
 * mixin-test
 * resource
