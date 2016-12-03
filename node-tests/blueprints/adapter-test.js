@@ -12,6 +12,8 @@ var expect = chai.expect;
 
 var SilentError = require('silent-error');
 
+var generateFakePackageManifest = require('../helpers/generate-fake-package-manifest');
+
 describe('Acceptance: ember generate and destroy adapter', function() {
   setupTestHooks(this);
 
@@ -83,10 +85,30 @@ describe('Acceptance: ember generate and destroy adapter', function() {
         {name: 'ember-cli-qunit', delete: true},
         {name: 'ember-cli-mocha', dev: true}
       ]))
+      .then(() => generateFakePackageManifest('ember-cli-mocha', '0.11.0'))
       .then(() => emberGenerateDestroy(args, _file => {
         expect(_file('tests/unit/adapters/foo-test.js'))
           .to.contain('import { describeModule, it } from \'ember-mocha\';')
           .to.contain('describeModule(\n  \'adapter:foo\',')
+          .to.contain('expect(adapter).to.be.ok;');
+      }));
+  });
+
+  it('adapter-test for mocha v0.12+', function() {
+    var args = ['adapter-test', 'foo'];
+
+    return emberNew()
+      .then(() => modifyPackages([
+        {name: 'ember-cli-qunit', delete: true},
+        {name: 'ember-cli-mocha', dev: true}
+      ]))
+      .then(() => generateFakePackageManifest('ember-cli-mocha', '0.12.0'))
+      .then(() => emberGenerateDestroy(args, _file => {
+        expect(_file('tests/unit/adapters/foo-test.js'))
+          .to.contain('import { describe, it } from \'mocha\';')
+          .to.contain('import { setupTest } from \'ember-mocha\';')
+          .to.contain('describe(\'Unit | Adapter | foo\', function() {')
+          .to.contain('setupTest(\'adapter:foo\',')
           .to.contain('expect(adapter).to.be.ok;');
       }));
   });
