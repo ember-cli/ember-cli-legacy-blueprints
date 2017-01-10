@@ -18,3 +18,12 @@ before_install:
 
 install:
   - npm install
+
+deploy:
+  provider: npm
+  email: stefan.penner+ember-cli@gmail.com
+  api_key:
+    secure: oeTDR2JVXCOYvkkXJ+wZ/XioEYg0loT6Z2vY0YnRmPZmYz/HbSZeTbdIQaPG9UAqGoBrO5OOSxa+WcEOLcbCOwMEIEud7gNyKQSuavl08jSP1C/j0hcoIzeGwmev+OoxBUbccHDrsqMT1XFNo0NV6WokALslPKmRStHnqUotXqePmkUgRzoGbqNB2A9vOlMwRW29Jd2RzznXZyHneWHkamDH9zCD3eax68dBfwR5aNZ6kB57+EYIN+yenoSAQDT8i6MFaVRDY6T89QHRqFhuBsAsea/tYx+SaoqpnEVufVa9gywi363EtgDuF22J0C6Ufhru6WLoJEr0mwqgNWiRsHCWEpPHR7EcC2qAhTQq3U5AoalqT/XWVhCGa1hfSy2TRQlb2ZgLFLw2T+BTWJDQ5hWt8VLh9oKFXuViAjzRE6VuLhaa9LxAXTErWb0RUviIsCQwTmlAnos4wbtMGd4s+ZyLeitZeqhy9tQZ2AYEJk2SFlWVohw9FafJX2so3WHD9cd9scym6RVbk6PY8yhlJ8ADCt3xASYw60wGW7IxhveDdrYftV1HWQ3jEzN0xy64/Erz28wFUf9vdwgb9nNUzJ3fPiXGLgugjemxCHBntzfvvZAafuILJHo7IbiMBuZWBRfr8CqfxSDhwu43o2EIC3gXQ064MIpZsDZs1niZVWY=
+  on:
+    tags: true
+    repo: ember-cli/ember-cli-legacy-blueprints
