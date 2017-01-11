@@ -12,11 +12,11 @@
   },
   "scripts": {
     "lint": "mocha node-tests/lint-test",
-    "test": "mocha node-tests --recursive  --compilers js:babel-register"
+    "test": "mocha node-tests --recursive --compilers js:babel-register"
   },
   "repository": "https://github.com/ember-cli/ember-cli-legacy-blueprints",
   "engines": {
-    "node": ">= 0.12"
+    "node": ">= 4 || 6 || 7"
   },
   "author": "",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
     "babel-plugin-transform-es2015-shorthand-properties": "^6.5.0",
     "babel-register": "^6.7.2",
-    "ember-cli": "2.4.2",
+    "ember-cli": "2.10.0",
     "ember-cli-blueprint-test-helpers": "0.13.0",
     "eslint-plugin-chai-expect": "^1.1.1",
     "mocha": "^3.0.0",
