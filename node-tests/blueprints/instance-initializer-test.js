@@ -23,10 +23,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('tests/unit/instance-initializers/foo-test.js'))
           .to.contain("import { initialize } from 'my-app/instance-initializers/foo';");
@@ -43,10 +40,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo/bar',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('tests/unit/instance-initializers/foo/bar-test.js'))
           .to.contain("import { initialize } from 'my-app/instance-initializers/foo/bar';");
@@ -63,10 +57,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('app/instance-initializers/foo.js'))
           .to.contain("export { default, initialize } from 'my-addon/instance-initializers/foo';");
@@ -85,10 +76,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo/bar',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('app/instance-initializers/foo/bar.js'))
           .to.contain("export { default, initialize } from 'my-addon/instance-initializers/foo/bar';");
@@ -107,10 +95,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('app/instance-initializers/foo.js'))
           .to.not.exist;
@@ -130,10 +115,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo/bar',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('app/instance-initializers/foo/bar.js'))
           .to.not.exist;
@@ -153,10 +135,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('lib/my-addon/app/instance-initializers/foo.js'))
           .to.contain("export { default, initialize } from 'my-addon/instance-initializers/foo';");
@@ -175,10 +154,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo/bar',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
 
         expect(_file('lib/my-addon/app/instance-initializers/foo/bar.js'))
           .to.contain("export { default, initialize } from 'my-addon/instance-initializers/foo/bar';");
@@ -197,10 +173,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
       }));
   });
 
@@ -215,10 +188,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
       }));
   });
 
@@ -232,10 +202,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo/bar',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
       }));
   });
 
@@ -251,10 +218,7 @@ describe('Acceptance: ember generate and destroy instance-initializer', function
                       "  // appInstance.inject('route', 'foo', 'service:foo');\n" +
                       "}\n" +
                       "\n" +
-                      "export default {\n" +
-                      "  name: 'foo/bar',\n" +
-                      "  initialize\n" +
-                      "};");
+                      "export default { initialize };");
       }));
   });
 
