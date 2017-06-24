@@ -19,7 +19,7 @@ describe('Acceptance: ember generate and destroy resource', function() {
       .then(() => emberGenerateDestroy(args, (_file) => {
         expect(_file('app/routes/foo.js'))
           .to.contain("import Ember from 'ember';")
-          .to.contain("export default Ember.Route.extend({\n});");
+          .to.contain("export default Route.extend({\n});");
 
         expect(_file('app/templates/foo.hbs'))
           .to.contain('{{outlet}}');

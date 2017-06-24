@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { View } = Ember;
 
-export default Ember.View.extend({
+export default View.extend({
 });
