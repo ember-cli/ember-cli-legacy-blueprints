@@ -14,7 +14,11 @@ module.exports = function(blueprint) {
     if ('ember-cli-qunit' in dependencies) {
       type = 'qunit';
     } else if ('ember-cli-mocha' in dependencies) {
-      var checker = new VersionChecker({ project: this.project });
+      var addon = {
+        project: this.project,
+        root: this.project.root
+      };
+      var checker = new VersionChecker(addon);
       if (fs.existsSync(this.path + '/mocha-0.12-files') && checker.for('ember-cli-mocha', 'npm').satisfies('>=0.12.0')) {
         type = 'mocha-0.12';
       } else {
