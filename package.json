@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-legacy-blueprints",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "The default blueprint for ember-cli addons.",
   "files": [
     "index.js",
@@ -16,7 +16,7 @@
   },
   "repository": "https://github.com/ember-cli/ember-cli-legacy-blueprints",
   "engines": {
-    "node": ">= 0.12"
+    "node": "^4.5 || 6.* || >= 7.*"
   },
   "author": "",
   "license": "MIT",
