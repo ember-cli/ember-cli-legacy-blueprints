@@ -27,18 +27,18 @@
     "ember-cli": "2.4.2",
     "ember-cli-blueprint-test-helpers": "0.13.0",
     "eslint-plugin-chai-expect": "^1.1.1",
-    "mocha": "^3.0.0",
-    "mocha-eslint": "^2.0.2"
+    "mocha": "^4.0.1",
+    "mocha-eslint": "^4.1.0"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "chalk": "^1.1.1",
+    "chalk": "^2.3.0",
     "ember-cli-get-component-path-option": "^1.0.0",
     "ember-cli-get-dependency-depth": "^1.0.0",
     "ember-cli-is-package-missing": "^1.0.0",
-    "ember-cli-lodash-subset": "^1.0.7",
+    "ember-cli-lodash-subset": "^2.0.1",
     "ember-cli-normalize-entity-name": "^1.0.0",
     "ember-cli-path-utils": "^1.0.0",
     "ember-cli-string-utils": "^1.0.0",
@@ -47,9 +47,9 @@
     "ember-cli-version-checker": "^2.1.0",
     "ember-router-generator": "^1.0.0",
     "exists-sync": "0.0.3",
-    "fs-extra": "^0.24.0",
+    "fs-extra": "^4.0.0",
     "inflection": "^1.7.1",
-    "rsvp": "^3.0.17",
+    "rsvp": "^4.7.0",
     "silent-error": "^1.0.0"
   },
   "ember-addon": {
