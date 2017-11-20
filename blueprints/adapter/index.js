@@ -29,7 +29,7 @@ module.exports = {
     }
 
     if (options.baseClass) {
-      baseClass = stringUtil.classify(options.baseClass.replace('\/', '-'));
+      baseClass = stringUtil.classify(options.baseClass.replace('/', '-'));
       baseClass = baseClass + 'Adapter';
       importStatement = 'import ' + baseClass + ' from \'' + relativePath + options.baseClass + '\';';
     }
